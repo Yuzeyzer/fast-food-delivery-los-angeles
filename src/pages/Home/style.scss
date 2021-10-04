@@ -1,0 +1,41 @@
+@import "@assets/scss/index.scss";
+
+.home {
+  padding-top: vw(90);
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid #EDEFF2;
+    padding-bottom: vw(45);
+  }
+  &__title {
+    @include font(vw(30), 400);
+    color: $text-blue;
+    position: relative;
+    span:first-child {
+      font-weight: 700;
+    }
+    span:last-child {
+      @include font(vw(90), 800);
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #002881;
+      mix-blend-mode: normal;
+      opacity: 0.03;
+      white-space: nowrap;
+    }
+  }
+  &__newsletter {
+    @include font(vw(14), 700);
+    display: flex;
+    align-items: center;
+    color: $text-blue;
+    svg {
+      width: vw(20);
+      height: vw(16);
+      margin-right: vw(30);
+    }
+  }
+}
