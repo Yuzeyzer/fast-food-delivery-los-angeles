@@ -1,5 +1,17 @@
-@import '@assets/scss/index.scss';
+@import "@assets/scss/index.scss";
 
 .header {
+  padding: vw(30) vw(30) vw(30) vw(36);
   background-color: $bg-white;
+  &__container {
+    display: flex;
+    align-items: center;
+  }
+  &__nav {
+    margin-left: vw(206);
+  }
+}
+.logo {
+  @include font(vw(18), 700);
+  color: $text-blue;
 }

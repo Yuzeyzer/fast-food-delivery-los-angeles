@@ -1,0 +1,11 @@
+@import "@assets/scss/index.scss";
+
+.nav {
+  &__list {
+    display: flex;
+  }
+  &__item {
+    @include font(vw(13), 700);
+    color: $text-blue;
+  }
+}
