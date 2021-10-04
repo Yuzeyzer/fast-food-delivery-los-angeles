@@ -9,7 +9,7 @@ const Nav = () => {
 		<nav className="nav">
 			<ul className="nav__list">
 				{navItems.map((text) => (
-					<Item text={text} />
+					<Item text={text} key={text}/>
 				))}
 			</ul>
 		</nav>
