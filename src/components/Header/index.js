@@ -1,6 +1,7 @@
 import React from 'react'
 import Nav from './Nav'
 import Search from './Search'
+import City from './City'
 import './style.scss'
 
 const Header = () => {
@@ -15,6 +16,9 @@ const Header = () => {
 				</div>
 				<div>
 					<Search />
+				</div>
+				<div>
+					<City />
 				</div>
 			</div>
 		</header>
