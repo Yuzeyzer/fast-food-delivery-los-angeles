@@ -1,5 +1,6 @@
 import React from 'react'
 import Nav from './Nav'
+import Search from './Search'
 import './style.scss'
 
 const Header = () => {
@@ -9,8 +10,11 @@ const Header = () => {
 				<a href='' className='logo'>
 					Constructor
 				</a>
-				<div className="header__nav">
+				<div className='header__nav'>
 					<Nav />
+				</div>
+				<div>
+					<Search />
 				</div>
 			</div>
 		</header>
