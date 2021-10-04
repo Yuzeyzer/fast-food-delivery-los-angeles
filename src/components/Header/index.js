@@ -2,6 +2,7 @@ import React from 'react'
 import Nav from './Nav'
 import Search from './Search'
 import City from './City'
+import User from './User'
 import './style.scss'
 
 const Header = () => {
@@ -14,12 +15,9 @@ const Header = () => {
 				<div className='header__nav'>
 					<Nav />
 				</div>
-				<div>
-					<Search />
-				</div>
-				<div>
-					<City />
-				</div>
+				<Search />
+				<City />
+        <User />
 			</div>
 		</header>
 	)

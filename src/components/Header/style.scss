@@ -3,6 +3,7 @@
 .header {
   padding: vw(30) vw(30) vw(30) vw(36);
   background-color: $bg-white;
+  border-bottom: 2px solid $bg-light-gray;
   &__container {
     display: flex;
     align-items: center;
