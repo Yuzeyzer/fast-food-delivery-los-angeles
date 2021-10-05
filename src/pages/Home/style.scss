@@ -5,7 +5,7 @@
   &__header {
     display: flex;
     justify-content: space-between;
-    border-bottom: 2px solid #EDEFF2;
+    border-bottom: 2px solid $bg-light-gray;
     padding-bottom: vw(45);
   }
   &__title {
@@ -37,5 +37,8 @@
       height: vw(16);
       margin-right: vw(30);
     }
+  }
+  &__content {
+    padding-top: vw(30);
   }
 }

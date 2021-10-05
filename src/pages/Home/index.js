@@ -1,16 +1,17 @@
 import React from 'react'
+import Categories from '@components/Categories'
 import './style.scss'
 
 const Home = () => {
 	return (
-		<section className="home"> 
-			<div className="container">
-				<div className="home__header">
-					<h1 className="home__title">
+		<section className='home'>
+			<div className='container'>
+				<div className='home__header'>
+					<h1 className='home__title'>
 						Fast <span>Food Delivery</span> in Los Angeles
 						<span>FOOD DELIVERY</span>
 					</h1>
-					<div className="home__newsletter">
+					<div className='home__newsletter'>
 						<svg
 							width='20'
 							height='16'
@@ -26,6 +27,9 @@ const Home = () => {
 						</svg>
 						<span> Subscribe To Our Newsletter</span>
 					</div>
+				</div>
+				<div className="home__content">
+					<Categories />
 				</div>
 			</div>
 		</section>
