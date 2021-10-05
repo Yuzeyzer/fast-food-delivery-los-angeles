@@ -1,5 +1,6 @@
 import React from 'react'
 import Categories from '@components/Categories'
+import MainFoodProduct from '@components/MainFoodProducts'
 import './style.scss'
 
 const Home = () => {
@@ -28,8 +29,19 @@ const Home = () => {
 						<span> Subscribe To Our Newsletter</span>
 					</div>
 				</div>
-				<div className="home__content">
+				<div className='home__content'>
 					<Categories />
+					<div className='home__products'>
+						<MainFoodProduct />
+						<MainFoodProduct />
+						<MainFoodProduct />
+						<MainFoodProduct />
+						<MainFoodProduct />
+						<MainFoodProduct />
+						<MainFoodProduct />
+						<MainFoodProduct />
+						<MainFoodProduct />
+					</div>
 				</div>
 			</div>
 		</section>

@@ -41,4 +41,10 @@
   &__content {
     padding-top: vw(30);
   }
+  &__products {
+    padding-top: vw(30);
+    display: flex;
+    flex-wrap: wrap;
+    gap: vw(30);
+  }
 }
