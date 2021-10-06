@@ -2,13 +2,14 @@ import React from 'react'
 import Categories from '@components/Categories'
 import MainFoodProduct from '@components/MainFoodProducts'
 import getCollection from '@/hooks/getCollection'
+import Preloader from '@components/Preloader'
 import './style.scss'
 
 const Home = () => {
 	const [mainFoods, setMainFood] = React.useState([])
 	React.useEffect(() => {
 		;(async () => {
-			const { documents: foods, error } = await getCollection('bishkek')
+			const { documents: foods } = await getCollection('bishkek')
 			setMainFood(foods)
 		})()
 	}, [])
@@ -40,9 +41,13 @@ const Home = () => {
 				<div className='home__content'>
 					<Categories />
 					<div className='home__products'>
-						{mainFoods.map((food) => {
-							return <MainFoodProduct {...food} key={food.id} />
-						})}
+						{mainFoods.length ? (
+							mainFoods.map((food) => {
+								return <MainFoodProduct {...food} key={food.id} />
+							})
+						) : (
+							<Preloader />
+						)}
 					</div>
 				</div>
 			</div>

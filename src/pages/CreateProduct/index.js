@@ -29,7 +29,7 @@ const CreateProduct = () => {
 			<label>Картинка:</label>
 			<input onChange={handleChange} name='imageUrl' value={food.imageUrl} type='text' />
 			<label>Время готовки:</label>
-			<input onChange={handleChange} name='cookTime' value={food.cookTime} type='text' />
+			<input onChange={handleChange} name='cookTime' value={food.cookTime} type='number' />
 			<button>Создать продукт</button>
 		</form>
 	)
