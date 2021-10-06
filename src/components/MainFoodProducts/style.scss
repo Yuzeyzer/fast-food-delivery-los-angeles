@@ -28,6 +28,10 @@
     border-radius: vw(30);
     padding: vw(10) vw(20);
     max-height: vw(40);
+    img {
+      width: vw(16);
+      height: vw(16);
+    }
     span {
       @include font(vw(12), 700);
       margin-left: vw(10);
