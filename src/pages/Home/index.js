@@ -1,9 +1,17 @@
 import React from 'react'
 import Categories from '@components/Categories'
 import MainFoodProduct from '@components/MainFoodProducts'
+import getCollection from '@/hooks/getCollection'
 import './style.scss'
 
 const Home = () => {
+	const [mainFoods, setMainFood] = React.useState([])
+	React.useEffect(() => {
+		;(async () => {
+			const { documents: foods, error } = await getCollection('bishkek')
+			setMainFood(foods)
+		})()
+	}, [])
 	return (
 		<section className='home'>
 			<div className='container'>
@@ -32,15 +40,9 @@ const Home = () => {
 				<div className='home__content'>
 					<Categories />
 					<div className='home__products'>
-						<MainFoodProduct />
-						<MainFoodProduct />
-						<MainFoodProduct />
-						<MainFoodProduct />
-						<MainFoodProduct />
-						<MainFoodProduct />
-						<MainFoodProduct />
-						<MainFoodProduct />
-						<MainFoodProduct />
+						{mainFoods.map((food) => {
+							return <MainFoodProduct {...food} key={food.id} />
+						})}
 					</div>
 				</div>
 			</div>
