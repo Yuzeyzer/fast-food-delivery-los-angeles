@@ -1,4 +1,5 @@
 import React from 'react'
+import updateDocument from '@/hooks/updateDocument'
 import starIcon from './img/star-icon.svg'
 import likeIcon from './img/like-icon.svg'
 import timeIcon from './img/time-icon.svg'
@@ -6,8 +7,14 @@ import busketIcon from './img/busket-icon.svg'
 import kebabIcon from './img/kebab-icon.svg'
 import './style.scss'
 
-const MainFoodProduct = ({ name, price, imageUrl, categories, rating, cookTime, isLiked }) => {
-	console.log(imageUrl)
+const MainFoodProduct = ({ id, name, price, imageUrl, categories, rating, cookTime, isLiked }) => {
+	const [like, setLike] = React.useState(isLiked)
+	const { updateDoc } = updateDocument('bishkek', id)
+
+	const handleLikeClick = async () => {
+		setLike(!like)
+		await updateDoc({ isLiked: !like })
+	}
 	return (
 		<div className='main-product'>
 			<div className='main-product__header'>
@@ -16,7 +23,7 @@ const MainFoodProduct = ({ name, price, imageUrl, categories, rating, cookTime, 
 					<img src={timeIcon} alt='cook time' />
 					<span>{cookTime} min</span>
 				</div>
-				<div className={`main-product__like ${isLiked ? 'liked' : ''}`}>
+				<div onClick={handleLikeClick} className={`main-product__like ${like ? 'liked' : ''}`}>
 					<img src={likeIcon} alt='like' />
 				</div>
 			</div>
@@ -36,7 +43,7 @@ const MainFoodProduct = ({ name, price, imageUrl, categories, rating, cookTime, 
 				</div>
 				<div className='main-product__categories'>
 					{categories.map((category) => {
-						return <span>{category}</span>
+						return <span key={category}>{category}</span>
 					})}
 					<img src={kebabIcon} alt='more categories' />
 				</div>
