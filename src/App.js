@@ -3,6 +3,7 @@ import Header from '@components/Header'
 import Home from './pages/Home'
 import CreateProduct from './pages/CreateProduct'
 import { Route } from 'react-router-dom'
+import './store/store'
 
 function App() {
 	return (
