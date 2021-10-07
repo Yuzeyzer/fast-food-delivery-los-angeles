@@ -7,11 +7,14 @@ import './style.scss'
 
 const Home = () => {
 	const [mainFoods, setMainFood] = React.useState([])
+
+	const getMainProducts = async () => {
+		const { documents: foods } = await getCollection('bishkek')
+		setMainFood(foods)
+	}
+
 	React.useEffect(() => {
-		;(async () => {
-			const { documents: foods } = await getCollection('bishkek')
-			setMainFood(foods)
-		})()
+		getMainProducts()
 	}, [])
 	return (
 		<section className='home'>
