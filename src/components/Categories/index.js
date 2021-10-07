@@ -1,10 +1,17 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { getfilteredProducts } from './actions'
 import categoryItems from './const'
 import Item from './Item'
 import './style.scss'
 
 const Categories = () => {
+	const dispatch = useDispatch()
 	const [active, setActive] = React.useState(0)
+
+	React.useEffect(() => {
+		dispatch(getfilteredProducts(categoryItems[0].type))
+	}, [])
 	return (
 		<div className='categories'>
 			<ul className='categories__list'>

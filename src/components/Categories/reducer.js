@@ -2,12 +2,14 @@ const initialState = {
 	category: 'Burgers',
 }
 
-const Categories = (state = initialState, action) => {
+const categoriesReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case 'SET_CATEGORY': {
 			return { ...state, category: action.payload }
 		}
+		default:
+			return state
 	}
 }
 
-export default Categories
+export default categoriesReducer
