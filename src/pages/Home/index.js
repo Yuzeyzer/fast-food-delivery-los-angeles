@@ -1,20 +1,17 @@
 import React from 'react'
 import Categories from '@components/Categories'
 import MainFoodProduct from '@components/MainFoodProducts'
-import getCollection from '@/hooks/getCollection'
 import Preloader from '@components/Preloader'
+import { fetchProducts } from './actions'
 import './style.scss'
+import { useDispatch, useSelector } from 'react-redux'
 
 const Home = () => {
-	const [mainFoods, setMainFood] = React.useState([])
-
-	const getMainProducts = async () => {
-		const { documents: foods } = await getCollection('bishkek')
-		setMainFood(foods)
-	}
+	const dispatch = useDispatch()
+	const { products } = useSelector((state) => state.productsReducer)
 
 	React.useEffect(() => {
-		getMainProducts()
+		fetchProducts(dispatch)
 	}, [])
 	return (
 		<section className='home'>
@@ -44,8 +41,8 @@ const Home = () => {
 				<div className='home__content'>
 					<Categories />
 					<div className='home__products'>
-						{mainFoods.length ? (
-							mainFoods.map((food) => {
+						{products.length ? (
+							products.map((food) => {
 								return <MainFoodProduct {...food} key={food.id} />
 							})
 						) : (
