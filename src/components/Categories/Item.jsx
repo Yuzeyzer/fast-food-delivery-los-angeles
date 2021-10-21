@@ -1,16 +1,17 @@
 import React from 'react'
+import { filterCategory, setCategory } from './actions'
 import { useDispatch } from 'react-redux'
-import { getfilteredProducts } from './actions'
 
-const Item = ({ icon, type, active, index, setActive }) => {
+const Item = ({ type, icon, activeItem, setActiveItem, index }) => {
 	const dispatch = useDispatch()
-	const handleClick = () => {
-		setActive(index)
-		dispatch(getfilteredProducts(type))
+
+	const handeClick = () => {
+		setActiveItem(index)
+		dispatch(filterCategory(type))
 	}
 
 	return (
-		<li onClick={handleClick} className={`categories__item ${active === index ? 'active' : ''}`}>
+		<li onClick={handeClick} className={`categories__item ${activeItem === index ? 'active' : ''}`}>
 			<img src={icon} alt={type} />
 			<span>{type}</span>
 		</li>

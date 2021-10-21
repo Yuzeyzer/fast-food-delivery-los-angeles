@@ -3,13 +3,13 @@ import Nav from './Nav'
 import Search from './Search'
 import City from './City'
 import User from './User'
-import './style.scss'
+import './styles.scss'
 
 const Header = () => {
 	return (
 		<header className='header'>
 			<div className='header__container'>
-				<a href='' className='logo'>
+				<a className='logo' href=''>
 					Constructor
 				</a>
 				<div className='header__nav'>
@@ -17,7 +17,7 @@ const Header = () => {
 				</div>
 				<Search />
 				<City />
-        <User />
+				<User />
 			</div>
 		</header>
 	)

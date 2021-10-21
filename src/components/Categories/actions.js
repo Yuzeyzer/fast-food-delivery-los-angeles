@@ -1,13 +1,14 @@
-import getFilteredCollection from '../../hooks/getFilteredCollection'
-import { GET_PRODUCTS } from '../../pages/Home/actions'
+import getFiletedCollection from '../../hooks/getFilteredCollection'
+import { getRestaraunts } from '../../pages/Home/actions'
+import { SET_CATEGORY } from './actionTypes'
 
-export const SET_CATEGORY = (category) => ({
-	type: 'SET_CATEGORY',
-	payload: category,
+export const setCategory = (text) => ({
+	type: SET_CATEGORY,
+	payload: text,
 })
 
-export const getfilteredProducts = (category) => async (dispatch) => {
-	dispatch(SET_CATEGORY(category))
-	const { documents } = await getFilteredCollection('bishkek', category)
-	dispatch(GET_PRODUCTS(documents))
+export const filterCategory = (category) => async (dispatch) => {
+	const { documents } = await getFiletedCollection('restaraunts', category)
+	dispatch(setCategory(category))
+  dispatch(getRestaraunts(documents))
 }

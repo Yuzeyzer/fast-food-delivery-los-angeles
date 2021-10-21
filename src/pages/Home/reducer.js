@@ -1,15 +1,17 @@
+import { GET_RESTARAUNTS } from './actionTypes'
+
 const initialState = {
-	items: [],
+	restaraunts: [],
 }
 
-const productsReducer = (state = initialState, action) => {
+const restarauntsReducer = (state = initialState, action) => {
 	switch (action.type) {
-		case 'GET_PRODUCTS': {
-			return { ...state, items: action.payload }
+		case GET_RESTARAUNTS: {
+			return { ...state, restaraunts: action.payload }
 		}
 		default:
 			return state
 	}
 }
 
-export default productsReducer
+export default restarauntsReducer

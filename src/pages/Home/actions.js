@@ -1,11 +1,12 @@
+import { GET_RESTARAUNTS } from './actionTypes'
 import getCollection from '@/hooks/getCollection'
 
-export const GET_PRODUCTS = (products) => ({
-	type: 'GET_PRODUCTS',
-	payload: products,
+export const getRestaraunts = (restaraunts) => ({
+	type: GET_RESTARAUNTS,
+	payload: restaraunts,
 })
 
-export const fetchProducts = async (dispatch) => {
-	const { documents } = await getCollection('bishkek')
-	dispatch(GET_PRODUCTS(documents))
+export const getRestarauntsFirebase = () => async (dispatch) => {
+	const { documents, error } = await getCollection('restaraunts')
+	dispatch(getRestaraunts(documents))
 }

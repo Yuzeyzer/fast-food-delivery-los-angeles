@@ -1,13 +1,12 @@
 import React from 'react'
-import mapIcon from './icons/place.svg'
-import './style.scss'
+import placeIcon from './icons/place.svg'
+import './styles.scss'
 
 const City = () => {
 	return (
 		<div className='header-city'>
-			<div className='popup'></div>
-			<img src={mapIcon} alt='New York' />
-			<span>New York</span>
+			<img src={placeIcon} alt='New York' />
+			<span>Bishkek</span>
 			<svg width='12' height='7' viewBox='0 0 12 7' fill='none' xmlns='http://www.w3.org/2000/svg'>
 				<path
 					fillRule='evenodd'

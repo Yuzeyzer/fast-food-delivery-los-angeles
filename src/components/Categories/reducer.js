@@ -1,10 +1,12 @@
+import { SET_CATEGORY } from './actionTypes'
+
 const initialState = {
 	category: 'Burgers',
 }
 
-const categoriesReducer = (state = initialState, action) => {
+const categoryReducer = (state = initialState, action) => {
 	switch (action.type) {
-		case 'SET_CATEGORY': {
+		case SET_CATEGORY: {
 			return { ...state, category: action.payload }
 		}
 		default:
@@ -12,4 +14,4 @@ const categoriesReducer = (state = initialState, action) => {
 	}
 }
 
-export default categoriesReducer
+export default categoryReducer

@@ -1,10 +1,10 @@
 import React from 'react'
-import './style.scss'
+import './styles.scss'
 
 const Preloader = () => {
 	return (
-		<div className='preloader'>
-			<div className='loader'></div>
+		<div id='preloader'>
+			<div id='loader'></div>
 		</div>
 	)
 }

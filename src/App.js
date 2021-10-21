@@ -1,16 +1,16 @@
-import React from 'react'
-import Header from '@components/Header'
+import Header from './components/Header'
+import AdminCreate from './pages/AdminCreate'
 import Home from './pages/Home'
-import CreateProduct from './pages/CreateProduct'
+import Auth from './pages/Auth'
 import { Route } from 'react-router-dom'
-import './store/store'
 
 function App() {
 	return (
 		<div className='App'>
 			<Header />
 			<Route exact path='/' component={Home} />
-			<Route exact path='/create' component={CreateProduct} />
+			<Route path='/auth' component={Auth} />
+			<Route path='/create/restaraunt' component={AdminCreate} />
 		</div>
 	)
 }

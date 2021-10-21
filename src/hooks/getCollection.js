@@ -6,14 +6,15 @@ const getCollection = async (collectionName) => {
 	let error = null
 
 	try {
-		const querySnapshot = await getDocs(collection(firestore, collectionName))
+		const myCollection = collection(firestore, collectionName)
+		const data = await getDocs(myCollection)
 
-		querySnapshot.forEach((doc) => {
-			documents = [...documents, { id: doc.id, ...doc.data() }]
+		data.forEach((doc) => {
+			documents = [...documents, { ...doc.data(), id: doc.id }]
 		})
-	} catch (e) {
-		error = e.message
-		console.error('Произошла ошибки при получении документов ', e)
+
+	} catch (err) {
+		error = err.message
 	}
 
 	return { documents, error }

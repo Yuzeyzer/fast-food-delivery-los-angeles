@@ -1,11 +1,10 @@
 import React from 'react'
 import searchIcon from './icons/search.svg'
-import './style.scss'
-
+import './styles.scss'
 const Search = () => {
 	return (
 		<div className='header-search'>
-			<img src={searchIcon} alt='searchbar' />
+			<img src={searchIcon} alt='search' />
 			<input type='text' placeholder='Search ...' />
 		</div>
 	)
