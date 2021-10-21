@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import emailIcon from './icons/email.svg'
 import bgImage from './icons/bg.jpg'
 import passwordIcon from './icons/password.svg'
@@ -34,7 +35,9 @@ const Login = () => {
 								<img src={passwordIcon} alt='Type your Password' />
 							</div>
 							<button>Login</button>
-							<span className="auth__have-account">Don’t have an account? <a href="#">Sign Up</a></span>
+							<span className='auth__have-account'>
+								Don’t have an account? <Link to='/auth/sign-up'>Sign Up</Link>
+							</span>
 						</form>
 					</div>
 					<div className='col-8'>
