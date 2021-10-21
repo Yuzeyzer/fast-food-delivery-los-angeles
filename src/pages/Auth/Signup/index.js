@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import useSignup from '@/hooks/useSignup'
 import userIcon from './icons/user.svg'
 import emailIcon from './icons/email.svg'
 import bgImage from './icons/bg.jpg'

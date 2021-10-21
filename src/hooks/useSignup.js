@@ -1,8 +1,7 @@
-import { useCallback } from 'react'
 import { auth } from '@/firebase/config'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
 
-const useSignup = useCallback(async (email, password) => {
+const useSignup = async (email, password) => {
 	let user
 	let error
 	try {
@@ -11,6 +10,6 @@ const useSignup = useCallback(async (email, password) => {
 		error = err.message
 	}
 	return { user, error }
-})
+}
 
 export default useSignup
