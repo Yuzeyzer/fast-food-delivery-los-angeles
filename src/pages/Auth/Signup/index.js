@@ -1,6 +1,6 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import useSignup from '@/hooks/useSignup'
+import { Link, useHistory } from 'react-router-dom'
+import UseSignup from '@/hooks/useSignup'
 import userIcon from './icons/user.svg'
 import emailIcon from './icons/email.svg'
 import bgImage from './icons/bg.jpg'
@@ -8,6 +8,14 @@ import passwordIcon from './icons/password.svg'
 import './styles.scss'
 
 const SignUp = () => {
+	const history = useHistory();
+
+	const handleSubmit = async (event) => {
+		event.preventDefault()
+		const { email, password, name } = event.target.elements
+		await UseSignup(email.value, password.value, name.value)
+		history.push('/')
+	}
 	return (
 		<section className='sign-up section'>
 			<div className='container'>
@@ -20,15 +28,15 @@ const SignUp = () => {
 							Welcome Back! We glad to see you again! We hope that our products makes you happy. We
 							always work to improve our product. Now you can login and see our news.
 						</p>
-						<form>
+						<form onSubmit={handleSubmit}>
 							<label>Name</label>
 							<div>
-								<input type='text' placeholder='John Doe' required />
+								<input name='name' type='text' placeholder='John Doe' required />
 								<img src={userIcon} alt='Type your Name' />
 							</div>
 							<label>Email</label>
 							<div>
-								<input type='email' placeholder='tromp.velda@russel.biz' required />
+								<input name='email' type='email' placeholder='tromp.velda@russel.biz' required />
 								<img src={emailIcon} alt='Type your Email' />
 							</div>
 							<label>
@@ -38,7 +46,12 @@ const SignUp = () => {
 								</span>
 							</label>
 							<div>
-								<input type='password' placeholder='tromp.velda@russel.biz' required />
+								<input
+									name='password'
+									type='password'
+									placeholder='tromp.velda@russel.biz'
+									required
+								/>
 								<img src={passwordIcon} alt='Type your Password' />
 							</div>
 							<button>Sign Up</button>

@@ -1,7 +1,7 @@
 import { auth } from '@/firebase/config'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
 
-const useSignup = async (email, password) => {
+const UseSignup = async (email, password) => {
 	let user
 	let error
 	try {
@@ -12,4 +12,4 @@ const useSignup = async (email, password) => {
 	return { user, error }
 }
 
-export default useSignup
+export default UseSignup
