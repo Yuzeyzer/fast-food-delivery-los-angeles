@@ -14,7 +14,6 @@ const getFilteredCollection = async (collectionName, category) => {
 		const filteredData = await getDocs(queryData)
 
 		filteredData.forEach((doc) => {
-			console.log(doc.data())
 			documents = [...documents, { id: doc.id, ...doc.data() }]
 		})
 
