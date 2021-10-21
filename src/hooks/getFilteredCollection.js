@@ -1,7 +1,7 @@
 import { firestore } from '@/firebase/config'
 import { getDocs, collection, query, where } from 'firebase/firestore'
 
-const getFiletedCollection = async (collectionName, category) => {
+const getFilteredCollection = async (collectionName, category) => {
 	let documents = []
 	let error = null
 
@@ -14,6 +14,7 @@ const getFiletedCollection = async (collectionName, category) => {
 		const filteredData = await getDocs(queryData)
 
 		filteredData.forEach((doc) => {
+			console.log(doc.data())
 			documents = [...documents, { id: doc.id, ...doc.data() }]
 		})
 
@@ -25,4 +26,4 @@ const getFiletedCollection = async (collectionName, category) => {
 	return { documents, error }
 }
 
-export default getFiletedCollection
+export default getFilteredCollection
