@@ -5,14 +5,21 @@ import App from './App'
 import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import store from './store'
+import { auth } from './firebase/config'
 
-ReactDOM.render(
-	<React.StrictMode>
-		<Provider store={store}>
-			<BrowserRouter>
-				<App />
-			</BrowserRouter>
-		</Provider>
-	</React.StrictMode>,
-	document.getElementById('root'),
-)
+let app
+
+auth.onAuthStateChanged((_user) => {
+	if (!app) {
+		app = ReactDOM.render(
+			<React.StrictMode>
+				<Provider store={store}>
+					<BrowserRouter>
+						<App />
+					</BrowserRouter>
+				</Provider>
+			</React.StrictMode>,
+			document.getElementById('root'),
+		)
+	}
+})

@@ -1,5 +1,7 @@
 import React from 'react'
 import { Link, useHistory } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { setUser } from '@/store/user/actions'
 import UseSignup from '@/hooks/useSignup'
 import userIcon from './icons/user.svg'
 import emailIcon from './icons/email.svg'
@@ -8,12 +10,22 @@ import passwordIcon from './icons/password.svg'
 import './styles.scss'
 
 const SignUp = () => {
-	const history = useHistory();
+	const history = useHistory()
+	const dispatch = useDispatch()
 
 	const handleSubmit = async (event) => {
 		event.preventDefault()
+
 		const { email, password, name } = event.target.elements
-		await UseSignup(email.value, password.value, name.value)
+
+		const { error, user } = await UseSignup(email.value, password.value, name.value)
+
+		if (error) {
+			throw new Error(error)
+		}
+
+		dispatch(setUser(true))
+
 		history.push('/')
 	}
 	return (

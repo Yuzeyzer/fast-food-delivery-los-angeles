@@ -2,33 +2,33 @@ import Header from './components/Header'
 import AdminCreate from './pages/AdminCreate'
 import Home from './pages/Home'
 import Signup from './pages/Auth/Signup'
-import { Route, Switch, useHistory } from 'react-router-dom'
+import { Route, Switch, useHistory, Redirect } from 'react-router-dom'
 import Login from './pages/Auth/Login'
-import { useSelector } from 'react-redux'
 import React from 'react'
+import getUser from './hooks/getUser'
 
 function App() {
 	const history = useHistory()
-	const { isAuth } = useSelector((state) => state.user)
+	const { user } = getUser()
 
 	React.useEffect(() => {
-		if (!isAuth) {
+		if (!user) {
 			history.push('/auth/login')
 		}
-	}, [isAuth])
+	}, [user])
+
 	return (
 		<div className='App'>
-			{!isAuth ? (
-				<Switch>
-					<Route path='/auth/login' component={Login} />
-					<Route path='/auth/sign-up' component={Signup} />
-				</Switch>
-			) : (
-				<Switch>
+			<Switch>
+				<Route path='/auth/login' render={() => (user ? <Redirect to='/' /> : <Login />)} />
+				<Route path='/auth/sign-up' render={() => (user ? <Redirect to='/' /> : <Signup />)} />
+			</Switch>
+			{user && (
+				<>
 					<Header />
 					<Route exact path='/' component={Home} />
 					<Route path='/create/restaraunt' component={AdminCreate} />
-				</Switch>
+				</>
 			)}
 		</div>
 	)
